@@ -57,6 +57,7 @@ export const SurveyOption = styled.div`
   padding: 6px 20px;
   box-sizing: border-box;
   word-break: keep-all;
+  cursor: pointer;
   &:focus {
     color: #c4c4c4;
     background-color: #9d9d9d;

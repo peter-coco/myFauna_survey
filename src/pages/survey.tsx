@@ -32,10 +32,12 @@ const Survey = () => {
   }, [surveyNo]);
 
   const handleTopOption = useCallback(() => {
+    console.log('TOP');
     setCharacterPoint((pre) => pre + 1);
     handleNextSurvey();
   }, [handleNextSurvey]);
   const handleBottomOption = useCallback(() => {
+    console.log('Bot');
     setCharacterPoint((pre) => pre - 1);
     handleNextSurvey();
   }, [handleNextSurvey]);
