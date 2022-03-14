@@ -15,7 +15,7 @@ export const ResultPercentage = styled.div<{ mainColor: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  font-family: 'Jua';
   & > span {
     color: ${(props) => props.mainColor};
   }
@@ -33,6 +33,7 @@ export const ResultAnimalTitle = styled.div<{ mainColor: string }>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Jua';
   & > div {
     text-align: center;
   }
@@ -43,6 +44,7 @@ export const ResultAnimalTitle = styled.div<{ mainColor: string }>`
 export const ResultAnimalSubTitle = styled.div<{ mainColor: string }>`
   font-size: 14px;
   font-weight: 400;
+  font-family: 'Jua';
   color: ${(props) => props.mainColor};
 `;
 export const ResultAnimalDescription = styled.div`
@@ -58,6 +60,7 @@ export const ResultLetterTitle = styled.div<{ mainColor: string }>`
   align-items: center;
   justify-content: center;
   border-radius: 30px;
+  font-family: 'Jua';
   background-color: ${(props) => props.mainColor};
   -webkit-text-stroke: 0.1px white;
 `;
@@ -76,6 +79,7 @@ export const ResultLetter = styled.div<{ bgImage: string }>`
   box-sizing: border-box;
   text-align: center;
   word-break: keep-all;
+  font-family: 'Jua';
 `;
 
 export const ResultShareWrap = styled.div`
@@ -99,6 +103,7 @@ export const ResultShareTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Jua';
 `;
 export const ResultShareLinkWrap = styled.div`
   display: flex;
@@ -130,6 +135,7 @@ export const ResultMatchTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Jua';
 `;
 export const ResultMatchLikeWrap = styled.div`
   width: 40%;
@@ -146,6 +152,7 @@ export const ResultMatchLikeDislikeWrap = styled.div`
 export const ResultMatchLikeTitle = styled.div`
   font-weight: 400;
   font-size: 12px;
+  font-family: 'Jua';
 `;
 export const ResultMatchLikeImage = styled.img`
   width: 109px;
@@ -160,11 +167,12 @@ export const ResultMatchLikeDescription = styled.div`
 export const ResultMatchLikeLinkBtn = styled.div<{ mainColor: string }>`
   font-weight: 400;
   font-size: 9px;
-  -webkit-text-stroke: 0.5px white;
+  -webkit-text-stroke: 0.2px white;
   background-color: ${(props) => props.mainColor};
   border-radius: 30px;
   padding: 2px 10px;
   box-sizing: border-box;
+  font-family: 'Jua';
   cursor: pointer;
 `;
 
@@ -178,6 +186,7 @@ export const ResultMatchDislikeWrap = styled.div`
 export const ResultMatchDislikeTitle = styled.div`
   font-weight: 400;
   font-size: 12px;
+  font-family: 'Jua';
 `;
 export const ResultMatchDislikeImage = styled.img`
   width: 109px;
@@ -192,11 +201,12 @@ export const ResultMatchDislikeDescription = styled.div`
 export const ResultMatchDislikeLinkBtn = styled.div<{ mainColor: string }>`
   font-weight: 400;
   font-size: 9px;
-  -webkit-text-stroke: 0.5px white;
+  -webkit-text-stroke: 0.2px white;
   background-color: ${(props) => props.mainColor};
   border-radius: 30px;
   padding: 2px 10px;
   box-sizing: border-box;
+  font-family: 'Jua';
   cursor: pointer;
 `;
 
@@ -219,6 +229,7 @@ export const ResultCreatorTitle = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  font-family: 'Jua';
   justify-content: center;
 `;
 export const ResultCreatorImage = styled.img`
@@ -245,7 +256,7 @@ export const ResultCreatorLinkBtn = styled.div<{ mainColor: string }>`
   height: 32px;
   background-color: ${(props) => props.mainColor};
   border-radius: 30px;
-
+  font-family: 'Jua';
   display: flex;
   align-items: center;
   justify-content: center;
@@ -267,6 +278,7 @@ export const ResultRetryBtn = styled.div`
   font-weight: 400;
   font-size: 20px;
   /* font-family: 'roboto'; */
+  font-family: 'Jua';
   cursor: pointer;
 `;
 
@@ -300,6 +312,7 @@ export const TestReviewTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Jua';
 `;
 export const TestReviewContentsWrap = styled.div`
   display: flex;

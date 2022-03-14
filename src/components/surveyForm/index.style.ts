@@ -34,6 +34,7 @@ export const SurveyDescription = styled.div`
   width: 250px;
   height: 56px;
   text-align: center;
+  font-family: 'Jua';
   line-height: 56px;
 `;
 export const SurveyOptionWrap = styled.div`
@@ -56,6 +57,7 @@ export const SurveyOption = styled.div`
   text-align: center;
   padding: 6px 20px;
   box-sizing: border-box;
+  font-family: 'Jua';
   word-break: keep-all;
   cursor: pointer;
   &:focus {

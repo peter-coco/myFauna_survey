@@ -20,6 +20,7 @@ const Description = styled.div`
   font-weight: 900;
   font-size: 20px;
   display: flex;
+  font-family: 'Jua';
   align-items: center;
   text-align: center;
   -webkit-text-stroke: 0.1px white;

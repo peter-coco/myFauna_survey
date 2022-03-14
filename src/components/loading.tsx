@@ -16,6 +16,7 @@ const LoadingText = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
+  font-family: 'Jua';
 `;
 const LoadingImage = styled.img`
   width: 320px;
@@ -28,7 +29,7 @@ const Loading = () => {
   return (
     <LoadingWrap>
       <LoadingImage src={loadingImage} />
-      <LoadingText>나와 닮은 동물을 찾는 중</LoadingText>
+      <LoadingText>나와 닮은 동물을 찾는 중...</LoadingText>
     </LoadingWrap>
   );
 };

@@ -22,6 +22,7 @@ const Description = styled.div`
   font-size: 24px;
   display: flex;
   align-items: center;
+  font-family: 'Jua';
 `;
 
 const Writer = styled.div`
@@ -34,6 +35,7 @@ const ParticipantWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Jua';
 `;
 const Participant = styled.div`
   font-size: 20px;
@@ -46,6 +48,7 @@ const Logo = styled.img`
 const Select = styled.div`
   width: 220px;
   height: 68px;
+  font-family: 'Jua';
   background: #ffcaca;
   border-radius: 30px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -82,7 +85,7 @@ const Home = () => {
     <HomeWrap>
       <Description>나는 어떤 타입의 동물일까?</Description>
       <Logo src={logo} />
-      <Writer>REPLACE</Writer>
+      {/* <Writer>REPLACE</Writer> */}
       <Link to="/introduce" style={{ textDecorationLine: 'none' }}>
         <Select>테스트 시작!</Select>
       </Link>
