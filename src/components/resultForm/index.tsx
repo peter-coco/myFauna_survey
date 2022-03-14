@@ -3,6 +3,7 @@ import * as Styles from './index.style';
 import { ResultContent } from '../../types/resultContet';
 import { setResultContents } from '../../utils/setResultContents';
 import KakaoShareButton from '../kakaoShare';
+import KakaoAdfit from '../kakaoAdfit';
 
 const ResultType = ({ type = 'dog' }: { type?: string }) => {
   const creatorLogo = '/images/replace_logo.png';
@@ -207,6 +208,7 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
         </Styles.ResultCreatorLinkBtn>
       </Styles.ResultCreatorWrap>
       <Styles.ResultRetryBtn onClick={handleRetryBtn}>테스트 다시 하기</Styles.ResultRetryBtn>
+      <KakaoAdfit />
     </Styles.ResultFormWrap>
   );
 };
