@@ -32,7 +32,7 @@ const Select = styled.div`
   border-radius: 30px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   display: flex;
-  /* font-family: 'Jua'; */
+  font-family: 'Jua';
   -webkit-text-stroke: 0.1px white;
   font-style: normal;
   align-items: center;
