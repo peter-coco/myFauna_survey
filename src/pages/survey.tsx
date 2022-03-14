@@ -27,8 +27,8 @@ const Survey = () => {
       setSurveyNo((pre) => pre + 1);
       return;
     }
-    setTimerButton(true);
-    setLoadingStateToResult(true);
+    // setTimerButton(true);
+    // setLoadingStateToResult(true);
   }, [surveyNo]);
 
   const handleTopOption = useCallback(() => {
