@@ -31,6 +31,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/survey" element={<Survey />} />
           <Route path="/introduce" element={<Introduce />} />
+          <Route path="/result/:type" element={<Result />} />
           {/* <Route path="/result/A" element={<Atype />} />
           <Route path="/result/B" element={<Btype />} />
           <Route path="/result/C" element={<Ctype />} />

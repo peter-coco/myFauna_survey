@@ -1,35 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import * as Styles from './index.style';
+import ReactAudioPlayer from 'react-audio-player';
 
 const SurveyForm = ({
-  backgroundColor,
-  descriptionImage,
+  backgroundImage,
   description,
+  descriptionImageUrl,
   topOptionText,
   bottomOptionText,
   handleTopOption,
   handleBottomOption,
 }: {
-  backgroundColor: string;
-  descriptionImage: string;
+  backgroundImage: string;
   description: string;
+  descriptionImageUrl: string;
   topOptionText: React.ReactNode;
   bottomOptionText: React.ReactNode;
   handleTopOption: () => void;
   handleBottomOption: () => void;
 }) => {
+  const soundTrack = '/sound/survey_sound.m4a';
+
   return (
-    <Styles.SurveyFormWrap backgroundColor={backgroundColor}>
+    <Styles.SurveyFormWrap backgroundImage={backgroundImage}>
+      <ReactAudioPlayer src={soundTrack} autoPlay controls={false} loop={true} volume={0.05} />
       <Styles.Top>
-        <Styles.SurveyDescriptionImage src={descriptionImage} />
+        <Styles.SurveyDescriptionImage src={descriptionImageUrl} />
       </Styles.Top>
-      <Styles.Bottom>
-        <Styles.SurveyDescription>{description}</Styles.SurveyDescription>
-        <Styles.SurveyOptionWrap>
-          <Styles.SurveyOption onClick={handleTopOption}>{topOptionText}</Styles.SurveyOption>
-          <Styles.SurveyOption onClick={handleBottomOption}>{bottomOptionText}</Styles.SurveyOption>
-        </Styles.SurveyOptionWrap>
-      </Styles.Bottom>
+      <Styles.SurveyDescription>{description}</Styles.SurveyDescription>
+      <Styles.SurveyOptionWrap>
+        <Styles.SurveyOption onClick={handleTopOption}>{topOptionText}</Styles.SurveyOption>
+        <Styles.SurveyOption onClick={handleBottomOption}>{bottomOptionText}</Styles.SurveyOption>
+      </Styles.SurveyOptionWrap>
     </Styles.SurveyFormWrap>
   );
 };

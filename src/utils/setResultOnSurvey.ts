@@ -1,5 +1,5 @@
 export const setResultOnSurvey = (characterPoint: number): string => {
-  if (9 >= characterPoint && characterPoint >= 8) return 'raccons';
+  if (9 >= characterPoint && characterPoint >= 8) return 'raccon';
   else if (8 > characterPoint && characterPoint >= 6) return 'fox';
   else if (6 > characterPoint && characterPoint >= 4) return 'dog';
   else if (4 > characterPoint && characterPoint >= 2) return 'bear';

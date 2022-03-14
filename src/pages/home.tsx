@@ -9,50 +9,53 @@ const HomeWrap = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 170px;
+  gap: 30px;
   align-items: center;
-  justify-content: space-evenly;
-  background-image: url('/images/home.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  justify-content: center;
+  /* background-image: url('/images/main.png'); */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  /* background-position: center; */
 `;
 const Description = styled.div`
-  font-weight: 900;
+  font-weight: 400;
   font-size: 24px;
   display: flex;
   align-items: center;
 `;
-const Bottom = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 20px;
-  position: relative;
-  top: 50px;
-`;
+
 const Writer = styled.div`
   font-size: 14px;
   font-weight: 900;
 
   color: #ffffff;
 `;
+const ParticipantWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 const Participant = styled.div`
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 400;
+`;
+const Logo = styled.img`
+  width: 246px;
+  height: 280px;
 `;
 const Select = styled.div`
   width: 220px;
   height: 68px;
-  background: #cce0ff;
+  background: #ffcaca;
   border-radius: 30px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  -webkit-text-stroke: 0.1px white;
+
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
-  font-size: 18px;
+  font-size: 20px;
   color: black;
   cursor: pointer;
   /* 
@@ -65,6 +68,7 @@ const Select = styled.div`
 `;
 const Home = () => {
   const [participatorCount, setParticipatorCount] = useState(0);
+  const logo = '/images/main.jpeg';
   useEffect(() => {
     // console.log(process.env.NEXT_PUBLIC_FIREBASE_APIKEY);
     const bucket = firebaseDB.collection('bucket');
@@ -77,14 +81,15 @@ const Home = () => {
   return (
     <HomeWrap>
       <Description>나는 어떤 타입의 동물일까?</Description>
-      <Bottom>
-        <Writer>REPLACE</Writer>
-        <Link to="/introduce" style={{ textDecorationLine: 'none' }}>
-          <Select>테스트 시작!</Select>
-        </Link>
+      <Logo src={logo} />
+      <Writer>REPLACE</Writer>
+      <Link to="/introduce" style={{ textDecorationLine: 'none' }}>
+        <Select>테스트 시작!</Select>
+      </Link>
+      <ParticipantWrap>
         <Participant>참여자 수</Participant>
         <Participant>{participatorCount}</Participant>
-      </Bottom>
+      </ParticipantWrap>
     </HomeWrap>
   );
 };
