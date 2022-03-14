@@ -80,6 +80,11 @@ export const ResultLetter = styled.div<{ bgImage: string }>`
   text-align: center;
   word-break: keep-all;
   font-family: 'Jua';
+  /* visibility: hidden; */
+
+  .blast {
+    will-change: opacity, filter;
+  }
 `;
 
 export const ResultShareWrap = styled.div`
@@ -113,6 +118,7 @@ export const ResultShareKakao = styled.div``;
 export const ResultShareLink = styled.img`
   width: 58px;
   height: 58px;
+  cursor: pointer;
 `;
 
 export const ResultMatchWrap = styled.div`
@@ -323,6 +329,7 @@ export const TestReviewContentWrap = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
 `;
 export const TestReviewEmotionWrap = styled.div`
   display: flex;

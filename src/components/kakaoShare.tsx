@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const ShareResult = styled.img`
   width: 58px;
   height: 58px;
+  cursor: pointer;
 `;
 
 declare global {

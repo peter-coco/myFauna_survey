@@ -4,6 +4,7 @@ import Loading from '../components/loading';
 import SurveyForm from '../components/surveyForm';
 import { setResultOnSurvey } from '../utils/setResultOnSurvey';
 import * as bgImage from '../asset/images/index';
+import { firebaseDB } from '../config/firebase';
 
 const SurveyWrap = styled.div`
   width: 100%;
@@ -25,10 +26,8 @@ const Survey = () => {
   const [bottomOptionText, setBottomOptionText] = useState<React.ReactNode>(<div></div>);
 
   const handleNextSurvey = useCallback(() => {
-    // console.log('next', surveyNo, Number(process.env.REACT_APP_SURVEY_COUNT));
     if (surveyNo < 9) {
       setSurveyNo((pre) => pre + 1);
-      // console.log('++');
       return;
     }
     setTimerButton(true);
@@ -36,12 +35,10 @@ const Survey = () => {
   }, [surveyNo]);
 
   const handleTopOption = useCallback(() => {
-    // console.log('TOP');
     setCharacterPoint((pre) => pre + 1);
     handleNextSurvey();
   }, [handleNextSurvey]);
   const handleBottomOption = useCallback(() => {
-    // console.log('Bot');
     setCharacterPoint((pre) => pre - 1);
     handleNextSurvey();
   }, [handleNextSurvey]);
@@ -65,8 +62,14 @@ const Survey = () => {
     []
   );
 
+  const handleAddResultToDatabase = useCallback(async () => {
+    setTimerButton(false);
+    const resultType = setResultOnSurvey(characterPoint);
+    const bucket = firebaseDB.collection('bucket');
+    await bucket.add({ resultType });
+    window.location.href = `/result/${resultType}`;
+  }, [characterPoint]);
   useEffect(() => {
-    // console.log('HI');
     switch (surveyNo) {
       case 1:
         handleSurveyInforByNo(
@@ -167,9 +170,8 @@ const Survey = () => {
         if (timer > 0) {
           setTimer((pre) => pre - 1);
         } else {
-          setTimerButton(false);
-          const resultType = setResultOnSurvey(characterPoint);
-          window.location.href = `/result/${resultType}`;
+          handleAddResultToDatabase();
+
           // setLoadingStateToResult(false);
           return;
         }

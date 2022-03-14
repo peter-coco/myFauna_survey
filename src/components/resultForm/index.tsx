@@ -4,12 +4,18 @@ import { ResultContent } from '../../types/resultContet';
 import { setResultContents } from '../../utils/setResultContents';
 import KakaoShareButton from '../kakaoShare';
 import KakaoAdfit from '../kakaoAdfit';
+import { firebaseDB } from '../../config/firebase';
 
 const ResultType = ({ type = 'dog' }: { type?: string }) => {
   const creatorLogo = '/images/replace_logo.png';
   const shareLinkLogo = '/images/shareLink.png';
 
   const copyLinkRef = useRef('window.location.href');
+  const [resultPercent, setResultPercent] = useState(0);
+  const [resultLikeCount, setResultLikeCount] = useState(0);
+  const [resultBadCount, setResultBadCount] = useState(0);
+  const [resultExpectCount, setResultExpectCount] = useState(0);
+  const [resultFunCount, setResultFunCount] = useState(0);
   const [resultMainColor, setResultMainColor] = useState('');
   const [resultLogoImage, setResultLogoImage] = useState('');
   const [resultAnimalTitle, setResultAnimalTitle] = useState<React.ReactNode>();
@@ -35,6 +41,58 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
 
   const handleCreatorLinkBtn = () => {
     window.open('https://www.instagram.com/accounts/login/?next=/2022.replace/');
+  };
+
+  const handleClickLikeBtn = () => {
+    const bucket = firebaseDB.collection('evaluation');
+
+    bucket
+      .doc('evaluation_item')
+      .get()
+      .then((item) => {
+        const items = item.data();
+        bucket.doc('evaluation_item').update({ like: items?.like + 1 });
+        setResultLikeCount((pre) => pre + 1);
+      });
+  };
+
+  const handleClickBadBtn = () => {
+    const bucket = firebaseDB.collection('evaluation');
+
+    bucket
+      .doc('evaluation_item')
+      .get()
+      .then((item) => {
+        const items = item.data();
+        bucket.doc('evaluation_item').update({ like: items?.bad + 1 });
+        setResultBadCount((pre) => pre + 1);
+      });
+  };
+
+  const handleClickFunBtn = () => {
+    const bucket = firebaseDB.collection('evaluation');
+
+    bucket
+      .doc('evaluation_item')
+      .get()
+      .then((item) => {
+        const items = item.data();
+        bucket.doc('evaluation_item').update({ like: items?.fun + 1 });
+        setResultFunCount((pre) => pre + 1);
+      });
+  };
+
+  const handleClickExpectBtn = () => {
+    const bucket = firebaseDB.collection('evaluation');
+
+    bucket
+      .doc('evaluation_item')
+      .get()
+      .then((item) => {
+        const items = item.data();
+        bucket.doc('evaluation_item').update({ like: items?.expect + 1 });
+        setResultExpectCount((pre) => pre + 1);
+      });
   };
 
   const handleShareLink = (text: any) => {
@@ -87,10 +145,42 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
     handleResultContent(resultContent);
   }, [type]);
 
+  useEffect(() => {
+    // console.log(process.env.NEXT_PUBLIC_FIREBASE_APIKEY);
+    const bucket = firebaseDB.collection('bucket');
+    // bucket.add({ result_type: 'A' });
+    let count = 0;
+    bucket.get().then((docs) => {
+      docs.forEach((doc) => {
+        const result = doc.data();
+        if (result.resultType === type) {
+          count++;
+        }
+      });
+      const percentage = Number(((count / docs.size) * 100).toFixed(2));
+      setResultPercent(percentage);
+    });
+  }, []);
+
+  useEffect(() => {
+    // console.log(process.env.NEXT_PUBLIC_FIREBASE_APIKEY);
+    const bucket = firebaseDB.collection('evaluation');
+    bucket
+      .doc('evaluation_item')
+      .get()
+      .then((item) => {
+        const items = item.data();
+        setResultExpectCount(items?.expect);
+        setResultLikeCount(items?.like);
+        setResultBadCount(items?.bad);
+        setResultFunCount(items?.fun);
+      });
+  }, []);
+
   return (
     <Styles.ResultFormWrap>
       <Styles.ResultPercentage mainColor={resultMainColor}>
-        나와 비슷한 유형의 사람이&nbsp;<span>00%</span>&nbsp;있어요.
+        나와 비슷한 유형의 사람이&nbsp;<span>{resultPercent}%</span>&nbsp;있어요.
       </Styles.ResultPercentage>
       <Styles.ResultAnimalImage src={resultLogoImage} />
       <Styles.ResultAnimalTitle mainColor={resultMainColor}>
@@ -158,32 +248,32 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
         </Styles.TestReviewTitle>
         <Styles.TestReviewContentsWrap>
           <Styles.TestReviewContentWrap>
-            <Styles.TestReviewEmotionWrap>
+            <Styles.TestReviewEmotionWrap onClick={handleClickLikeBtn}>
               <Styles.TestReviewEmotion>😄</Styles.TestReviewEmotion>
               <Styles.TestReviewEmotionDescription>잘맞아요</Styles.TestReviewEmotionDescription>
             </Styles.TestReviewEmotionWrap>
-            <Styles.TestReviewEmotionCount></Styles.TestReviewEmotionCount>
+            <Styles.TestReviewEmotionCount>{resultLikeCount}</Styles.TestReviewEmotionCount>
           </Styles.TestReviewContentWrap>
           <Styles.TestReviewContentWrap>
-            <Styles.TestReviewEmotionWrap>
+            <Styles.TestReviewEmotionWrap onClick={handleClickFunBtn}>
               <Styles.TestReviewEmotion>😋</Styles.TestReviewEmotion>
               <Styles.TestReviewEmotionDescription>재밌어요</Styles.TestReviewEmotionDescription>
             </Styles.TestReviewEmotionWrap>
-            <Styles.TestReviewEmotionCount></Styles.TestReviewEmotionCount>
+            <Styles.TestReviewEmotionCount>{resultFunCount}</Styles.TestReviewEmotionCount>
           </Styles.TestReviewContentWrap>
           <Styles.TestReviewContentWrap>
-            <Styles.TestReviewEmotionWrap>
+            <Styles.TestReviewEmotionWrap onClick={handleClickBadBtn}>
               <Styles.TestReviewEmotion>😅</Styles.TestReviewEmotion>
               <Styles.TestReviewEmotionDescription>아쉬워요</Styles.TestReviewEmotionDescription>
             </Styles.TestReviewEmotionWrap>
-            <Styles.TestReviewEmotionCount></Styles.TestReviewEmotionCount>
+            <Styles.TestReviewEmotionCount>{resultBadCount}</Styles.TestReviewEmotionCount>
           </Styles.TestReviewContentWrap>
           <Styles.TestReviewContentWrap>
-            <Styles.TestReviewEmotionWrap>
+            <Styles.TestReviewEmotionWrap onClick={handleClickExpectBtn}>
               <Styles.TestReviewEmotion>😍</Styles.TestReviewEmotion>
               <Styles.TestReviewEmotionDescription>후속작GO!</Styles.TestReviewEmotionDescription>
             </Styles.TestReviewEmotionWrap>
-            <Styles.TestReviewEmotionCount></Styles.TestReviewEmotionCount>
+            <Styles.TestReviewEmotionCount>{resultExpectCount}</Styles.TestReviewEmotionCount>
           </Styles.TestReviewContentWrap>
         </Styles.TestReviewContentsWrap>
       </Styles.TestReviewWrap>
