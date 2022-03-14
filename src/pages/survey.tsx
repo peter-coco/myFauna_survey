@@ -23,8 +23,10 @@ const Survey = () => {
   const [bottomOptionText, setBottomOptionText] = useState<React.ReactNode>(<div></div>);
 
   const handleNextSurvey = useCallback(() => {
+    console.log('next');
     if (surveyNo < Number(process.env.REACT_APP_SURVEY_COUNT)) {
       setSurveyNo((pre) => pre + 1);
+      console.log('++');
       return;
     }
     // setTimerButton(true);
