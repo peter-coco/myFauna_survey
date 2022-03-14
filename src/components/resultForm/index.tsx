@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import * as Styles from './index.style';
 import { ResultContent } from '../../types/resultContet';
 import { setResultContents } from '../../utils/setResultContents';
@@ -7,6 +7,8 @@ import KakaoShareButton from '../kakaoShare';
 const ResultType = ({ type = 'dog' }: { type?: string }) => {
   const creatorLogo = '/images/replace_logo.png';
   const shareLinkLogo = '/images/shareLink.png';
+
+  const copyLinkRef = useRef('window.location.href');
   const [resultMainColor, setResultMainColor] = useState('');
   const [resultLogoImage, setResultLogoImage] = useState('');
   const [resultAnimalTitle, setResultAnimalTitle] = useState<React.ReactNode>();
@@ -35,8 +37,28 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
     window.open('https://www.instagram.com/accounts/login/?next=/2022.replace/');
   };
 
-  const handleShareLink = () => {
-    // 핸드폰, 브라우저 내에 링크 복사. -> ctrl + c가 되야함.
+  const handleShareLink = (text: any) => {
+    // 흐름 1.
+    if (!document.queryCommandSupported('copy')) {
+      return alert('복사하기가 지원되지 않는 브라우저입니다.');
+    }
+    // 흐름 2.
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.top = '0';
+    textarea.style.left = '0';
+    textarea.style.position = 'fixed';
+    // 흐름 3.
+    document.body.appendChild(textarea);
+    // focus() -> 사파리 브라우저 서포팅
+    textarea.focus();
+    // select() -> 사용자가 입력한 내용을 영역을 설정할 때 필요
+    textarea.select();
+    // 흐름 4.
+    document.execCommand('copy');
+    // 흐름 5.
+    document.body.removeChild(textarea);
+    alert('클립보드에 복사되었습니다.');
   };
 
   const handleRetryBtn = () => {
@@ -92,7 +114,7 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
           {/* <Styles.ResultShareKakao></Styles.ResultShareKakao> */}
           <Styles.ResultShareLink
             src={shareLinkLogo}
-            onClick={handleShareLink}
+            onClick={() => handleShareLink(window.location.href)}
           ></Styles.ResultShareLink>
         </Styles.ResultShareLinkWrap>
       </Styles.ResultShareWrap>
