@@ -64,7 +64,7 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
       .get()
       .then((item) => {
         const items = item.data();
-        bucket.doc('evaluation_item').update({ like: items?.bad + 1 });
+        bucket.doc('evaluation_item').update({ bad: items?.bad + 1 });
         setResultBadCount((pre) => pre + 1);
       });
   };
@@ -77,7 +77,7 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
       .get()
       .then((item) => {
         const items = item.data();
-        bucket.doc('evaluation_item').update({ like: items?.fun + 1 });
+        bucket.doc('evaluation_item').update({ fun: items?.fun + 1 });
         setResultFunCount((pre) => pre + 1);
       });
   };
@@ -90,7 +90,7 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
       .get()
       .then((item) => {
         const items = item.data();
-        bucket.doc('evaluation_item').update({ like: items?.expect + 1 });
+        bucket.doc('evaluation_item').update({ expect: items?.expect + 1 });
         setResultExpectCount((pre) => pre + 1);
       });
   };
