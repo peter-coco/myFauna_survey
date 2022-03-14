@@ -8,10 +8,13 @@ const IntroduceWrap = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* gap: 50px; */
+  gap: 30px;
   align-items: center;
-  justify-content: space-evenly;
-  background-color: #8ec4cb;
+  justify-content: center;
+`;
+const Logo = styled.img`
+  width: 246px;
+  height: 280px;
 `;
 const Description = styled.div`
   font-weight: 900;
@@ -25,7 +28,7 @@ const Description = styled.div`
 const Select = styled.div`
   width: 220px;
   height: 68px;
-  background: #cce0ff;
+  background: #ffcaca;
   border-radius: 30px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   display: flex;
@@ -35,32 +38,24 @@ const Select = styled.div`
   align-items: center;
   justify-content: center;
   font-weight: 900;
-  font-size: 18px;
+  font-size: 20px;
   color: black;
   cursor: pointer;
 `;
 const Introduce = () => {
+  const introLogo = '/images/intro.jpeg';
   return (
     <IntroduceWrap>
+      <Logo src={introLogo} />
+
       <Description>
-        깊은 산속에 가면
+        깊은 산속에 가면 나와 닮은 동물을
         <br />
+        비춰주는 옹달샘이 있다고 한다.
         <br />
-        나와 닮은 동물을
+        호기심 가득한 마음을 품고
         <br />
-        비춰주는 옹달샘이
-        <br />
-        있다고 한다.
-        <br />
-        <br />
-        호기심 가득한
-        <br />
-        마음을 품고
-        <br />
-        <br />
-        옹달샘에 내 얼굴을
-        <br />
-        비춰보았다.
+        옹달샘에 내 얼굴을 비춰보았다.
       </Description>
       <Link to="/survey" style={{ textDecorationLine: 'none' }}>
         <Select onClick={() => {}}>무슨 모습일까?</Select>

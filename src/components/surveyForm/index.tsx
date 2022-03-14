@@ -2,34 +2,32 @@ import React, { useEffect, useState } from 'react';
 import * as Styles from './index.style';
 
 const SurveyForm = ({
-  backgroundColor,
-  descriptionImage,
+  backgroundImage,
   description,
+  descriptionImageUrl,
   topOptionText,
   bottomOptionText,
   handleTopOption,
   handleBottomOption,
 }: {
-  backgroundColor: string;
-  descriptionImage: string;
+  backgroundImage: string;
   description: string;
+  descriptionImageUrl: string;
   topOptionText: React.ReactNode;
   bottomOptionText: React.ReactNode;
   handleTopOption: () => void;
   handleBottomOption: () => void;
 }) => {
   return (
-    <Styles.SurveyFormWrap backgroundColor={backgroundColor}>
+    <Styles.SurveyFormWrap backgroundImage={backgroundImage}>
       <Styles.Top>
-        <Styles.SurveyDescriptionImage src={descriptionImage} />
+        <Styles.SurveyDescriptionImage src={descriptionImageUrl} />
       </Styles.Top>
-      <Styles.Bottom>
-        <Styles.SurveyDescription>{description}</Styles.SurveyDescription>
-        <Styles.SurveyOptionWrap>
-          <Styles.SurveyOption onClick={handleTopOption}>{topOptionText}</Styles.SurveyOption>
-          <Styles.SurveyOption onClick={handleBottomOption}>{bottomOptionText}</Styles.SurveyOption>
-        </Styles.SurveyOptionWrap>
-      </Styles.Bottom>
+      <Styles.SurveyDescription>{description}</Styles.SurveyDescription>
+      <Styles.SurveyOptionWrap>
+        <Styles.SurveyOption onClick={handleTopOption}>{topOptionText}</Styles.SurveyOption>
+        <Styles.SurveyOption onClick={handleBottomOption}>{bottomOptionText}</Styles.SurveyOption>
+      </Styles.SurveyOptionWrap>
     </Styles.SurveyFormWrap>
   );
 };

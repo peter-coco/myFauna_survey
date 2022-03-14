@@ -1,23 +1,9 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
-export const ShareResult = styled.button`
-  height: 64px;
-  background: #ffffff;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  border-radius: 20px;
-  padding: 0;
-
-  &:focus-within {
-    background-color: #a6a6a6;
-    color: #676767;
-  }
-  &:hover {
-    background-color: #a6a6a6;
-    color: #676767;
-  }
-  width: 220px;
+export const ShareResult = styled.img`
+  width: 58px;
+  height: 58px;
 `;
 
 declare global {
@@ -26,6 +12,8 @@ declare global {
   }
 }
 const KakaoShareButton = () => {
+  const shareButtonLogo = '/images/kakaoLogo.png';
+
   useEffect(() => {
     initKakao();
   }, []);
@@ -79,7 +67,11 @@ const KakaoShareButton = () => {
     });
   };
 
-  return <ShareResult onClick={createKakaoButton}>카카오톡 공유</ShareResult>;
+  return (
+    <ShareResult onClick={createKakaoButton} src={shareButtonLogo}>
+      카카오톡 공유
+    </ShareResult>
+  );
 };
 
 export default KakaoShareButton;

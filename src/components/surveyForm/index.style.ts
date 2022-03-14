@@ -1,13 +1,21 @@
 import styled from 'styled-components';
 
-export const SurveyFormWrap = styled.div<{ backgroundColor: string }>`
+export const SurveyFormWrap = styled.div<{ backgroundImage: string }>`
   width: 100%;
   height: 100%;
-  background-color: ${(props) => props.backgroundColor};
+  background-image: url(${(props) => props.backgroundImage});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
 `;
 export const Top = styled.div`
-  width: 100%;
-  height: 60%;
+  width: 180px;
+  height: 200px;
 `;
 export const Bottom = styled.div`
   width: 100%;
