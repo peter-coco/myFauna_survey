@@ -25,7 +25,6 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
   const [resultDislikeLinkUrl, setResultDislikeLinkUrl] = useState('');
 
   const handleLikeLinkBtn = () => {
-    console.log(resultLikeLinkUrl);
     window.location.href = resultLikeLinkUrl;
   };
 

@@ -13,7 +13,6 @@ const ResultWrap = styled.div`
 
 const Result = () => {
   const { type } = useParams();
-  console.log(type);
 
   return (
     <ResultWrap>

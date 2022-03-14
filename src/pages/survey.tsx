@@ -162,7 +162,6 @@ const Survey = () => {
         } else {
           setTimerButton(false);
           const resultType = setResultOnSurvey(characterPoint);
-          console.log(resultType);
           window.location.href = `/result/${resultType}`;
           // setLoadingStateToResult(false);
           return;
