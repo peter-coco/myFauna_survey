@@ -84,19 +84,31 @@ export const ResultShareWrap = styled.div`
   padding: 5px 5px;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 1px solid #c4c4c4;
   border-radius: 30px;
+  gap: 10px;
 `;
 export const ResultShareTitle = styled.div`
   font-weight: 400;
   font-size: 14px;
   -webkit-text-stroke: 0.1px white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
-export const ResultShareLinkWrap = styled.div``;
+export const ResultShareLinkWrap = styled.div`
+  display: flex;
+  gap: 10px;
+`;
 export const ResultShareKakao = styled.div``;
-export const ResultShareLink = styled.div``;
+export const ResultShareLink = styled.img`
+  width: 58px;
+  height: 58px;
+`;
 
 export const ResultMatchWrap = styled.div`
   width: 286px;
@@ -114,6 +126,10 @@ export const ResultMatchTitle = styled.div`
   font-weight: 400;
   font-size: 14px;
   -webkit-text-stroke: 0.1px white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 export const ResultMatchLikeWrap = styled.div`
   width: 40%;
@@ -200,6 +216,10 @@ export const ResultCreatorTitle = styled.div`
   font-weight: 400;
   font-size: 14px;
   -webkit-text-stroke: 0.1px white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 export const ResultCreatorImage = styled.img`
   width: 71px;
@@ -248,4 +268,69 @@ export const ResultRetryBtn = styled.div`
   font-size: 20px;
   /* font-family: 'roboto'; */
   cursor: pointer;
+`;
+
+export const UnderLinkBar = styled.div<{ mainColor: string }>`
+  width: 120%;
+  height: 9px;
+  background-color: ${(props) => props.mainColor};
+  position: absolute;
+  top: 50%;
+  z-index: -1;
+`;
+
+export const TestReviewWrap = styled.div`
+  width: 286px;
+  padding: 20px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c4c4c4;
+  border-radius: 30px;
+`;
+
+export const TestReviewTitle = styled.div`
+  font-weight: 400;
+  font-size: 14px;
+  -webkit-text-stroke: 0.1px white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const TestReviewContentsWrap = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+export const TestReviewContentWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+`;
+export const TestReviewEmotionWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: #c4c4c4;
+  border-radius: 50%;
+`;
+export const TestReviewEmotion = styled.div`
+  font-size: 25px;
+`;
+export const TestReviewEmotionDescription = styled.div`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 9px;
+`;
+export const TestReviewEmotionCount = styled.div`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 9px;
 `;

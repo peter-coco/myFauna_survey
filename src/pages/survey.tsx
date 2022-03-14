@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import Loading from '../components/loading';
 import SurveyForm from '../components/surveyForm';
 import { setResultOnSurvey } from '../utils/setResultOnSurvey';
-
 const SurveyWrap = styled.div`
   width: 100%;
   max-width: 400px;
@@ -10,6 +10,9 @@ const SurveyWrap = styled.div`
 `;
 
 const Survey = () => {
+  const [loadingStateToResult, setLoadingStateToResult] = useState(false);
+  const [timer, setTimer] = useState(2);
+  const [timerButton, setTimerButton] = useState(false);
   const [surveyNo, setSurveyNo] = useState(1);
   const [characterPoint, setCharacterPoint] = useState(0);
   const [backgroundImage, setBackgroundImage] = useState('/images/survey_bg1.jpeg');
@@ -24,10 +27,9 @@ const Survey = () => {
       setSurveyNo((pre) => pre + 1);
       return;
     }
-    const resultType = setResultOnSurvey(characterPoint);
-    window.location.href = `/result/${resultType}`;
-    return;
-  }, [characterPoint, surveyNo]);
+    setTimerButton(true);
+    setLoadingStateToResult(true);
+  }, [surveyNo]);
 
   const handleTopOption = useCallback(() => {
     setCharacterPoint((pre) => pre + 1);
@@ -152,17 +154,39 @@ const Survey = () => {
     }
   }, [surveyNo]);
 
+  useEffect(() => {
+    if (timerButton) {
+      const countdown = setInterval(() => {
+        if (timer > 0) {
+          setTimer((pre) => pre - 1);
+        } else {
+          setTimerButton(false);
+          const resultType = setResultOnSurvey(characterPoint);
+          console.log(resultType);
+          window.location.href = `/result/${resultType}`;
+          // setLoadingStateToResult(false);
+          return;
+        }
+      }, 1000);
+      return () => clearInterval(countdown);
+    }
+  }, [timerButton, timer, characterPoint]);
+
   return (
     <SurveyWrap>
-      <SurveyForm
-        backgroundImage={backgroundImage}
-        description={description}
-        descriptionImageUrl={descriptionImage}
-        topOptionText={topOptionText}
-        bottomOptionText={bottomOptionText}
-        handleTopOption={handleTopOption}
-        handleBottomOption={handleBottomOption}
-      />
+      {loadingStateToResult ? (
+        <Loading />
+      ) : (
+        <SurveyForm
+          backgroundImage={backgroundImage}
+          description={description}
+          descriptionImageUrl={descriptionImage}
+          topOptionText={topOptionText}
+          bottomOptionText={bottomOptionText}
+          handleTopOption={handleTopOption}
+          handleBottomOption={handleBottomOption}
+        />
+      )}
     </SurveyWrap>
   );
 };

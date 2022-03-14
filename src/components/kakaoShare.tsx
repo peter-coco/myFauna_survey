@@ -67,11 +67,7 @@ const KakaoShareButton = () => {
     });
   };
 
-  return (
-    <ShareResult onClick={createKakaoButton} src={shareButtonLogo}>
-      카카오톡 공유
-    </ShareResult>
-  );
+  return <ShareResult onClick={createKakaoButton} src={shareButtonLogo} />;
 };
 
 export default KakaoShareButton;

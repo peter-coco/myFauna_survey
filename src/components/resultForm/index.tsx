@@ -2,11 +2,11 @@ import React, { useCallback, useEffect, useState } from 'react';
 import * as Styles from './index.style';
 import { ResultContent } from '../../types/resultContet';
 import { setResultContents } from '../../utils/setResultContents';
-import { ShareResult } from '../kakaoShare';
+import KakaoShareButton from '../kakaoShare';
 
 const ResultType = ({ type = 'dog' }: { type?: string }) => {
   const creatorLogo = '/images/replace_logo.png';
-
+  const shareLinkLogo = '/images/shareLink.png';
   const [resultMainColor, setResultMainColor] = useState('');
   const [resultLogoImage, setResultLogoImage] = useState('');
   const [resultAnimalTitle, setResultAnimalTitle] = useState<React.ReactNode>();
@@ -33,6 +33,14 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
 
   const handleCreatorLinkBtn = () => {
     window.open('https://www.instagram.com/accounts/login/?next=/2022.replace/');
+  };
+
+  const handleShareLink = () => {
+    // 핸드폰, 브라우저 내에 링크 복사. -> ctrl + c가 되야함.
+  };
+
+  const handleRetryBtn = () => {
+    window.location.href = '/survey';
   };
 
   const handleResultContent = useCallback((resultContent: ResultContent) => {
@@ -75,16 +83,24 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
       </Styles.ResultLetterTitle>
       <Styles.ResultLetter bgImage={resultLetterImage}>{resultLetter}</Styles.ResultLetter>
       <Styles.ResultShareWrap>
-        <Styles.ResultShareTitle>내 결과 공유하기</Styles.ResultShareTitle>
+        <Styles.ResultShareTitle>
+          내 결과 공유하기
+          <Styles.UnderLinkBar mainColor={resultMainColor} />
+        </Styles.ResultShareTitle>
         <Styles.ResultShareLinkWrap>
-          <Styles.ResultShareKakao>
-            <ShareResult />
-          </Styles.ResultShareKakao>
-          <Styles.ResultShareLink></Styles.ResultShareLink>
+          <KakaoShareButton />
+          {/* <Styles.ResultShareKakao></Styles.ResultShareKakao> */}
+          <Styles.ResultShareLink
+            src={shareLinkLogo}
+            onClick={handleShareLink}
+          ></Styles.ResultShareLink>
         </Styles.ResultShareLinkWrap>
       </Styles.ResultShareWrap>
       <Styles.ResultMatchWrap>
-        <Styles.ResultMatchTitle>동물별 궁합</Styles.ResultMatchTitle>
+        <Styles.ResultMatchTitle>
+          동물별 궁합
+          <Styles.UnderLinkBar mainColor={resultMainColor} />
+        </Styles.ResultMatchTitle>
         <Styles.ResultMatchLikeDislikeWrap>
           <Styles.ResultMatchLikeWrap>
             <Styles.ResultMatchLikeTitle>좋아요</Styles.ResultMatchLikeTitle>
@@ -113,8 +129,47 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
           </Styles.ResultMatchDislikeWrap>
         </Styles.ResultMatchLikeDislikeWrap>
       </Styles.ResultMatchWrap>
+      <Styles.TestReviewWrap>
+        <Styles.TestReviewTitle>
+          테스트는 어땠나요?
+          <Styles.UnderLinkBar mainColor={resultMainColor} />
+        </Styles.TestReviewTitle>
+        <Styles.TestReviewContentsWrap>
+          <Styles.TestReviewContentWrap>
+            <Styles.TestReviewEmotionWrap>
+              <Styles.TestReviewEmotion>😄</Styles.TestReviewEmotion>
+              <Styles.TestReviewEmotionDescription>잘맞아요</Styles.TestReviewEmotionDescription>
+            </Styles.TestReviewEmotionWrap>
+            <Styles.TestReviewEmotionCount></Styles.TestReviewEmotionCount>
+          </Styles.TestReviewContentWrap>
+          <Styles.TestReviewContentWrap>
+            <Styles.TestReviewEmotionWrap>
+              <Styles.TestReviewEmotion>😋</Styles.TestReviewEmotion>
+              <Styles.TestReviewEmotionDescription>재밌어요</Styles.TestReviewEmotionDescription>
+            </Styles.TestReviewEmotionWrap>
+            <Styles.TestReviewEmotionCount></Styles.TestReviewEmotionCount>
+          </Styles.TestReviewContentWrap>
+          <Styles.TestReviewContentWrap>
+            <Styles.TestReviewEmotionWrap>
+              <Styles.TestReviewEmotion>😅</Styles.TestReviewEmotion>
+              <Styles.TestReviewEmotionDescription>아쉬워요</Styles.TestReviewEmotionDescription>
+            </Styles.TestReviewEmotionWrap>
+            <Styles.TestReviewEmotionCount></Styles.TestReviewEmotionCount>
+          </Styles.TestReviewContentWrap>
+          <Styles.TestReviewContentWrap>
+            <Styles.TestReviewEmotionWrap>
+              <Styles.TestReviewEmotion>😍</Styles.TestReviewEmotion>
+              <Styles.TestReviewEmotionDescription>후속작GO!</Styles.TestReviewEmotionDescription>
+            </Styles.TestReviewEmotionWrap>
+            <Styles.TestReviewEmotionCount></Styles.TestReviewEmotionCount>
+          </Styles.TestReviewContentWrap>
+        </Styles.TestReviewContentsWrap>
+      </Styles.TestReviewWrap>
       <Styles.ResultCreatorWrap>
-        <Styles.ResultCreatorTitle>만든이</Styles.ResultCreatorTitle>
+        <Styles.ResultCreatorTitle>
+          만든이
+          <Styles.UnderLinkBar mainColor={resultMainColor} />
+        </Styles.ResultCreatorTitle>
         <Styles.ResultCreatorImage src={creatorLogo} />
         <Styles.ResultCreatorHashtag>
           #너하고싶은거다해 #도전공간 #리플레이스
@@ -130,7 +185,7 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
           2022.replace
         </Styles.ResultCreatorLinkBtn>
       </Styles.ResultCreatorWrap>
-      <Styles.ResultRetryBtn>테스트 다시 하기</Styles.ResultRetryBtn>
+      <Styles.ResultRetryBtn onClick={handleRetryBtn}>테스트 다시 하기</Styles.ResultRetryBtn>
     </Styles.ResultFormWrap>
   );
 };

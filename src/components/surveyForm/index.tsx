@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as Styles from './index.style';
+import ReactAudioPlayer from 'react-audio-player';
 
 const SurveyForm = ({
   backgroundImage,
@@ -18,8 +19,11 @@ const SurveyForm = ({
   handleTopOption: () => void;
   handleBottomOption: () => void;
 }) => {
+  const soundTrack = '/sound/survey_sound.m4a';
+
   return (
     <Styles.SurveyFormWrap backgroundImage={backgroundImage}>
+      <ReactAudioPlayer src={soundTrack} autoPlay controls={false} loop={true} volume={0.05} />
       <Styles.Top>
         <Styles.SurveyDescriptionImage src={descriptionImageUrl} />
       </Styles.Top>
