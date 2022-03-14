@@ -60,6 +60,7 @@ const Survey = () => {
   );
 
   useEffect(() => {
+    console.log('HI');
     switch (surveyNo) {
       case 1:
         handleSurveyInforByNo(
