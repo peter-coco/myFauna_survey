@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Loading from '../components/loading';
 import SurveyForm from '../components/surveyForm';
 import { setResultOnSurvey } from '../utils/setResultOnSurvey';
+import * as bgImage from '../asset/images/index';
+
 const SurveyWrap = styled.div`
   width: 100%;
   max-width: 400px;
@@ -68,7 +70,7 @@ const Survey = () => {
     switch (surveyNo) {
       case 1:
         handleSurveyInforByNo(
-          '/images/survey_bg1&9.jpeg',
+          bgImage.SurveyBg1_9,
           '#ffffff',
           '나는',
           '/images/survey_logo1.jpeg',
@@ -78,7 +80,7 @@ const Survey = () => {
         break;
       case 2:
         handleSurveyInforByNo(
-          '/images/survey_bg2.jpeg',
+          bgImage.SurveyBg2,
           '#ffffff',
           '사람들과 말할 때',
           '/images/survey_logo2.jpeg',
@@ -88,7 +90,7 @@ const Survey = () => {
         break;
       case 3:
         handleSurveyInforByNo(
-          '/images/survey_bg3.jpeg',
+          bgImage.SurveyBg3,
           '#ffffff',
           '어떤 일을 할 때',
           '/images/survey_logo3.jpeg',
@@ -98,7 +100,7 @@ const Survey = () => {
         break;
       case 4:
         handleSurveyInforByNo(
-          '/images/survey_bg4.jpeg',
+          bgImage.SurveyBg4,
           '#ffffff',
           '사람들은 종종 나에게',
           '/images/survey_logo4.jpeg',
@@ -108,7 +110,7 @@ const Survey = () => {
         break;
       case 5:
         handleSurveyInforByNo(
-          '/images/survey_bg5.jpeg',
+          bgImage.SurveyBg5,
           '#ffffff',
           '나는 팀을',
           '/images/survey_logo5.jpeg',
@@ -118,7 +120,7 @@ const Survey = () => {
         break;
       case 6:
         handleSurveyInforByNo(
-          '/images/survey_bg6.jpeg',
+          bgImage.SurveyBg6,
           '#ffffff',
           '불합리한 일을 겪을 경우',
           '/images/survey_logo6.jpeg',
@@ -128,7 +130,7 @@ const Survey = () => {
         break;
       case 7:
         handleSurveyInforByNo(
-          '/images/survey_bg7.jpeg',
+          bgImage.SurveyBg7,
           '#ffffff',
           '나는 주로',
           '/images/survey_logo7.jpeg',
@@ -138,7 +140,7 @@ const Survey = () => {
         break;
       case 8:
         handleSurveyInforByNo(
-          '/images/survey_bg8.jpeg',
+          bgImage.SurveyBg8,
           '#ffffff',
           '무언가를 이룰 때',
           '/images/survey_logo8.jpeg',
@@ -148,7 +150,7 @@ const Survey = () => {
         break;
       case 9:
         handleSurveyInforByNo(
-          '/images/survey_bg1&9.jpeg',
+          bgImage.SurveyBg1_9,
           '#ffffff',
           '다른 사람이 나를 볼 때',
           '/images/survey_logo9.jpeg',

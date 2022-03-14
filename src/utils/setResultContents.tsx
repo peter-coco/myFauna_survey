@@ -1,5 +1,4 @@
 import { ResultContent } from '../types/resultContet';
-
 export const setResultContents = (type: string): ResultContent => {
   switch (type) {
     case 'raccon':
