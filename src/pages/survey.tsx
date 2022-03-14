@@ -23,23 +23,23 @@ const Survey = () => {
   const [bottomOptionText, setBottomOptionText] = useState<React.ReactNode>(<div></div>);
 
   const handleNextSurvey = useCallback(() => {
-    console.log('next', surveyNo, Number(process.env.REACT_APP_SURVEY_COUNT));
+    // console.log('next', surveyNo, Number(process.env.REACT_APP_SURVEY_COUNT));
     if (surveyNo < 9) {
       setSurveyNo((pre) => pre + 1);
-      console.log('++');
+      // console.log('++');
       return;
     }
-    // setTimerButton(true);
-    // setLoadingStateToResult(true);
+    setTimerButton(true);
+    setLoadingStateToResult(true);
   }, [surveyNo]);
 
   const handleTopOption = useCallback(() => {
-    console.log('TOP');
+    // console.log('TOP');
     setCharacterPoint((pre) => pre + 1);
     handleNextSurvey();
   }, [handleNextSurvey]);
   const handleBottomOption = useCallback(() => {
-    console.log('Bot');
+    // console.log('Bot');
     setCharacterPoint((pre) => pre - 1);
     handleNextSurvey();
   }, [handleNextSurvey]);
@@ -64,7 +64,7 @@ const Survey = () => {
   );
 
   useEffect(() => {
-    console.log('HI');
+    // console.log('HI');
     switch (surveyNo) {
       case 1:
         handleSurveyInforByNo(
