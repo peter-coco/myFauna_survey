@@ -35,9 +35,9 @@ const KakaoShareButton = () => {
       // Render 부분 id=kakao-link-btn 을 찾아 그부분에 렌더링을 합니다
       objectType: 'feed',
       content: {
-        title: '작심삼일 심리테스트',
-        description: '#작심삼일 #심리테스트 #메타인지',
-        imageUrl: 'https://ifh.cc/g/KXfoE6.png',
+        title: '나의 동물타입 심리테스트',
+        description: '#나의동물타입 #심리테스트 #메타인지',
+        imageUrl: 'https://ifh.cc/g/t1S66R.jpg',
         link: {
           mobileWebUrl: window.location.href,
           webUrl: window.location.href,
