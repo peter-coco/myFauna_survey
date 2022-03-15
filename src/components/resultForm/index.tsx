@@ -5,10 +5,12 @@ import { setResultContents } from '../../utils/setResultContents';
 import KakaoShareButton from '../kakaoShare';
 import KakaoAdfit from '../kakaoAdfit';
 import { firebaseDB } from '../../config/firebase';
+import ReactAudioPlayer from 'react-audio-player';
 
 const ResultType = ({ type = 'dog' }: { type?: string }) => {
   const creatorLogo = '/images/replace_logo.png';
   const shareLinkLogo = '/images/shareLink.png';
+  const soundTrack = '/sound/survey_bgm.mp3';
 
   const copyLinkRef = useRef('window.location.href');
   const [resultPercent, setResultPercent] = useState(0);
@@ -179,6 +181,7 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
 
   return (
     <Styles.ResultFormWrap>
+      <ReactAudioPlayer src={soundTrack} autoPlay controls={false} loop={true} volume={0.05} />
       <Styles.ResultPercentage mainColor={resultMainColor}>
         나와 비슷한 유형의 사람이&nbsp;<span>{resultPercent}%</span>&nbsp;있어요.
       </Styles.ResultPercentage>

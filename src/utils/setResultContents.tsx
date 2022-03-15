@@ -466,7 +466,7 @@ export const setResultContents = (type: string): ResultContent => {
           <div>
             <span>은근한 최강자 </span>
             <br />
-            말랑말랑 햄찌
+            말랑말랑 냠미
           </div>
         ),
         animalSubTitle: '나를 귀찮게 하지마.',

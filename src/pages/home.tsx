@@ -52,7 +52,6 @@ const Select = styled.div`
   background: #ffcaca;
   border-radius: 30px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  -webkit-text-stroke: 0.1px white;
 
   display: flex;
   align-items: center;

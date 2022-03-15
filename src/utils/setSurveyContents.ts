@@ -46,7 +46,7 @@ export const setSurveyContents = (surveyNo: number): [string, string, string, st
     bottomOptionText = '상대방의 기분을 생각하며 말한다.';
   } else if (surveyNo === 9) {
     description = '낯선 사람이 나에게 말을 걸면 ';
-    descriptionImage = '/images/survey_logo9.jpeg';
+    descriptionImage = '/images/survey_logo1.jpeg';
     topOptionText = '같이 신나게 떠든다.';
     bottomOptionText = '얘기를 듣고 공감한다.';
   } else if (surveyNo === 10) {

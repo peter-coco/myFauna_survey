@@ -69,7 +69,6 @@ export const ResultLetterTitle = styled.div<{ mainColor: string }>`
   border-radius: 30px;
   font-family: 'Jua';
   background-color: ${(props) => props.mainColor};
-  -webkit-text-stroke: 0.1px white;
 `;
 export const ResultLetter = styled.div<{ bgImage: string }>`
   background-image: url(${(props) => props.bgImage});
@@ -110,7 +109,6 @@ export const ResultShareWrap = styled.div`
 export const ResultShareTitle = styled.div`
   font-weight: 400;
   font-size: 14px;
-  -webkit-text-stroke: 0.1px white;
   position: relative;
   display: flex;
   align-items: center;
@@ -143,7 +141,6 @@ export const ResultMatchWrap = styled.div`
 export const ResultMatchTitle = styled.div`
   font-weight: 400;
   font-size: 14px;
-  -webkit-text-stroke: 0.1px white;
   position: relative;
   display: flex;
   align-items: center;
@@ -180,7 +177,6 @@ export const ResultMatchLikeDescription = styled.div`
 export const ResultMatchLikeLinkBtn = styled.div<{ mainColor: string }>`
   font-weight: 400;
   font-size: 9px;
-  -webkit-text-stroke: 0.2px white;
   background-color: ${(props) => props.mainColor};
   border-radius: 30px;
   padding: 2px 10px;
@@ -214,7 +210,6 @@ export const ResultMatchDislikeDescription = styled.div`
 export const ResultMatchDislikeLinkBtn = styled.div<{ mainColor: string }>`
   font-weight: 400;
   font-size: 9px;
-  -webkit-text-stroke: 0.2px white;
   background-color: ${(props) => props.mainColor};
   border-radius: 30px;
   padding: 2px 10px;
@@ -238,7 +233,6 @@ export const ResultCreatorWrap = styled.div`
 export const ResultCreatorTitle = styled.div`
   font-weight: 400;
   font-size: 14px;
-  -webkit-text-stroke: 0.1px white;
   position: relative;
   display: flex;
   align-items: center;
@@ -320,7 +314,6 @@ export const TestReviewWrap = styled.div`
 export const TestReviewTitle = styled.div`
   font-weight: 400;
   font-size: 14px;
-  -webkit-text-stroke: 0.1px white;
   position: relative;
   display: flex;
   align-items: center;
