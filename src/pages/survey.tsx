@@ -22,7 +22,7 @@ const Survey = () => {
   const [timerButton, setTimerButton] = useState(false);
   const [surveyNo, setSurveyNo] = useState(1);
   const [characterPoint, setCharacterPoint] = useState(0);
-  let backgroundImage: string = '';
+  let backgroundImage: string = '/images/survey_bg.png';
   let description: string = '';
   let backgroundColor: string = '';
   let descriptionImage: string = '';
@@ -62,7 +62,7 @@ const Survey = () => {
     botOptionValue: string
   ) => {
     // setBackgroundImage(imageUrl);
-    backgroundImage = imageUrl;
+    // backgroundImage = imageUrl;
     // setBackgroundColor(bgColor);
     // setDescription(description);
     description = descriptionValue;
