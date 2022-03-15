@@ -21,6 +21,7 @@ const SurveyForm = ({
 }) => {
   const soundTrack = '/sound/survey_sound.m4a';
 
+  console.log(backgroundImage, descriptionImageUrl);
   return (
     <Styles.SurveyFormWrap backgroundImage={backgroundImage}>
       <ReactAudioPlayer src={soundTrack} autoPlay controls={false} loop={true} volume={0.05} />
