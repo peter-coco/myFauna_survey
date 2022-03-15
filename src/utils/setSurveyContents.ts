@@ -86,7 +86,7 @@ export const setSurveyContents = (surveyNo: number): [string, string, string, st
     bottomOptionText = '예리하고 꼼꼼한 사람으로 봤으면 한다.';
   } else if (surveyNo === 17) {
     description = '내가 더 끌리는 말은';
-    descriptionImage = '/images/survey_logo1.jpeg';
+    descriptionImage = '/images/survey_logo9.jpeg';
     topOptionText = '결코 끌 수 없는 열정으로 삶을 살아라.';
     bottomOptionText = '겨울이 오면 봄이 멀지 않으리.';
   } else {
