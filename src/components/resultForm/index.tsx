@@ -42,7 +42,7 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
   };
 
   const handleCreatorLinkBtn = () => {
-    window.open('https://www.instagram.com/accounts/login/?next=/2022.replace/');
+    window.open('https://www.instagram.com/2022.replace/');
   };
 
   const handleClickLikeBtn = () => {
