@@ -44,7 +44,7 @@ const Survey = () => {
   }, [handleNextSurvey]);
 
   const handleSurveyInforByNo = useCallback(
-    (
+    async (
       imageUrl: string,
       bgColor: string,
       description: string,
@@ -52,12 +52,12 @@ const Survey = () => {
       topOptionText: React.ReactNode,
       botOptionText: React.ReactNode
     ) => {
-      setBackgroundImage(imageUrl);
-      setBackgroundColor(bgColor);
-      setDescription(description);
-      setDescriptionImage(descriptionImageUrl);
-      setTopOptionText(topOptionText);
-      setBottomOptionText(botOptionText);
+      await setBackgroundImage(imageUrl);
+      await setBackgroundColor(bgColor);
+      await setDescription(description);
+      await setDescriptionImage(descriptionImageUrl);
+      await setTopOptionText(topOptionText);
+      await setBottomOptionText(botOptionText);
     },
     []
   );
@@ -69,6 +69,7 @@ const Survey = () => {
     await bucket.add({ resultType });
     window.location.href = `/result/${resultType}`;
   }, [characterPoint]);
+
   useEffect(() => {
     switch (surveyNo) {
       case 1:

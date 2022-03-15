@@ -246,8 +246,8 @@ export const ResultCreatorTitle = styled.div`
   justify-content: center;
 `;
 export const ResultCreatorImage = styled.img`
-  width: 71px;
-  height: 115px;
+  width: 115px;
+  height: 71px;
 `;
 export const ResultCreatorHashtag = styled.div`
   font-weight: 700;
