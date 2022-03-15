@@ -11,7 +11,7 @@ export const SurveyFormWrap = styled.div<{ backgroundImage: string }>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 20px;
 `;
 export const Top = styled.div`
   width: 180px;

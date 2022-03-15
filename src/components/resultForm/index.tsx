@@ -120,7 +120,7 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
   };
 
   const handleRetryBtn = () => {
-    window.location.href = '/survey';
+    window.location.href = '/';
   };
 
   const handleResultContent = useCallback((resultContent: ResultContent) => {
@@ -190,10 +190,12 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
         {resultAnimalSubTitle}
       </Styles.ResultAnimalSubTitle>
       <Styles.ResultCreatorDescription>{resultAnimalDescription}</Styles.ResultCreatorDescription>
-      <Styles.ResultLetterTitle mainColor={resultMainColor}>
-        {resultLetterTitle}
-      </Styles.ResultLetterTitle>
-      <Styles.ResultLetter bgImage={resultLetterImage}>{resultLetter}</Styles.ResultLetter>
+      <Styles.ResultLetterWrap>
+        <Styles.ResultLetterTitle mainColor={resultMainColor}>
+          {resultLetterTitle}
+        </Styles.ResultLetterTitle>
+        <Styles.ResultLetter bgImage={resultLetterImage}>{resultLetter}</Styles.ResultLetter>
+      </Styles.ResultLetterWrap>
       <Styles.ResultShareWrap>
         <Styles.ResultShareTitle>
           내 결과 공유하기

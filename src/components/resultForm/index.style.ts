@@ -51,6 +51,13 @@ export const ResultAnimalDescription = styled.div`
   font-size: 14px;
   font-weight: 400;
 `;
+
+export const ResultLetterWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: -10px;
+  align-items: center;
+`;
 export const ResultLetterTitle = styled.div<{ mainColor: string }>`
   width: 251px;
   height: 38px;
@@ -338,7 +345,9 @@ export const TestReviewEmotionWrap = styled.div`
   align-items: center;
   width: 60px;
   height: 60px;
-  background-color: #c4c4c4;
+  background-color: #e8e8e8;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
   border-radius: 50%;
 `;
 export const TestReviewEmotion = styled.div`
@@ -348,9 +357,11 @@ export const TestReviewEmotionDescription = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 9px;
+  font-family: 'Jua';
 `;
 export const TestReviewEmotionCount = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 9px;
+  font-family: 'Jua';
 `;
