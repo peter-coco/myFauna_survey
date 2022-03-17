@@ -62,8 +62,8 @@ const Survey = () => {
   const handleAddResultToDatabase = useCallback(async () => {
     setTimerButton(false);
     const resultType = setResultOnSurvey(characterPoint);
-    const bucket = firebaseDB.collection('bucket');
-    await bucket.add({ resultType });
+    // const bucket = firebaseDB.collection('bucket');
+    // await bucket.add({ resultType });
     window.location.href = `/result/${resultType}`;
   }, [characterPoint]);
 
