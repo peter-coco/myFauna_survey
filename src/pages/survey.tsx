@@ -59,11 +59,11 @@ const Survey = () => {
     setTopOptionText(topOptionValue);
     setBottomOptionText(botOptionValue);
   };
-  const handleAddResultToDatabase = useCallback(async () => {
+  const handleAddResultToDatabase = useCallback(() => {
     setTimerButton(false);
     const resultType = setResultOnSurvey(characterPoint);
-    // const bucket = firebaseDB.collection('bucket');
-    // await bucket.add({ resultType });
+    const bucket = firebaseDB.collection('bucket');
+    bucket.add({ resultType });
     window.location.href = `/result/${resultType}`;
   }, [characterPoint]);
 

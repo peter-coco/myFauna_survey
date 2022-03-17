@@ -182,9 +182,9 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
   return (
     <Styles.ResultFormWrap>
       <ReactAudioPlayer src={soundTrack} autoPlay controls={false} loop={true} volume={0.05} />
-      {/* <Styles.ResultPercentage mainColor={resultMainColor}>
+      <Styles.ResultPercentage mainColor={resultMainColor}>
         나와 비슷한 유형의 사람이&nbsp;<span>{resultPercent}%</span>&nbsp;있어요.
-      </Styles.ResultPercentage> */}
+      </Styles.ResultPercentage>
       <Styles.ResultAnimalImage src={resultLogoImage} />
       <Styles.ResultAnimalTitle mainColor={resultMainColor}>
         {resultAnimalTitle}
@@ -246,7 +246,7 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
           </Styles.ResultMatchDislikeWrap>
         </Styles.ResultMatchLikeDislikeWrap>
       </Styles.ResultMatchWrap>
-      {/* <Styles.TestReviewWrap>
+      <Styles.TestReviewWrap>
         <Styles.TestReviewTitle>
           테스트는 어땠나요?
           <Styles.UnderLinkBar mainColor={resultMainColor} />
@@ -281,7 +281,7 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
             <Styles.TestReviewEmotionCount>{resultExpectCount}</Styles.TestReviewEmotionCount>
           </Styles.TestReviewContentWrap>
         </Styles.TestReviewContentsWrap>
-      </Styles.TestReviewWrap> */}
+      </Styles.TestReviewWrap>
       <Styles.ResultCreatorWrap>
         <Styles.ResultCreatorTitle>
           만든이
