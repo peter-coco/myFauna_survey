@@ -88,10 +88,10 @@ const Home = () => {
       <Link to="/introduce" style={{ textDecorationLine: 'none' }}>
         <Select>테스트 시작!</Select>
       </Link>
-      <ParticipantWrap>
+      {/* <ParticipantWrap>
         <Participant>참여자 수</Participant>
         <Participant>{participatorCount}</Participant>
-      </ParticipantWrap>
+      </ParticipantWrap> */}
     </HomeWrap>
   );
 };
