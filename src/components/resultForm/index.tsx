@@ -148,20 +148,38 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
   }, [type]);
 
   useEffect(() => {
-    // console.log(process.env.NEXT_PUBLIC_FIREBASE_APIKEY);
-    const bucket = firebaseDB.collection('bucket');
-    // bucket.add({ result_type: 'A' });
-    let count = 0;
-    bucket.get().then((docs) => {
-      docs.forEach((doc) => {
-        const result = doc.data();
-        if (result.resultType === type) {
-          count++;
+    const bucket = firebaseDB.collection('result');
+
+    bucket
+      .doc('type')
+      .get()
+      .then((item) => {
+        const items = item.data();
+        let typeCount = 0;
+
+        if (type === 'raccon') {
+          typeCount = items?.raccon;
+        } else if (type === 'fox') {
+          typeCount = items?.fox;
+        } else if (type === 'dog') {
+          typeCount = items?.dog;
+        } else if (type === 'bear') {
+          typeCount = items?.bear;
+        } else if (type === 'cow') {
+          typeCount = items?.cow;
+        } else if (type === 'hamster') {
+          typeCount = items?.hamster;
+        } else if (type === 'rabbit') {
+          typeCount = items?.rabbit;
+        } else if (type === 'cat') {
+          typeCount = items?.cat;
+        } else {
+          typeCount = items?.hedgehog;
         }
+
+        const percentage = Number(((typeCount / items?.total) * 100).toFixed(2));
+        setResultPercent(percentage);
       });
-      const percentage = Number(((count / docs.size) * 100).toFixed(2));
-      setResultPercent(percentage);
-    });
   }, []);
 
   useEffect(() => {

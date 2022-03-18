@@ -59,12 +59,58 @@ const Survey = () => {
     setTopOptionText(topOptionValue);
     setBottomOptionText(botOptionValue);
   };
-  const handleAddResultToDatabase = useCallback(() => {
+  const handleAddResultToDatabase = useCallback(async () => {
     setTimerButton(false);
     const resultType = setResultOnSurvey(characterPoint);
-    const bucket = firebaseDB.collection('bucket');
-    bucket.add({ resultType });
-    window.location.href = `/result/${resultType}`;
+
+    const bucket = firebaseDB.collection('result');
+
+    bucket
+      .doc('type')
+      .get()
+      .then(async (item) => {
+        const items = item.data();
+        if (resultType === 'raccon') {
+          // console.log(resultType, items?.raccon, items?.total);
+          await bucket.doc('type').update({ raccon: items?.raccon + 1 });
+          await bucket.doc('type').update({ total: items?.total + 1 });
+          window.location.href = `/result/${resultType}`;
+        } else if (resultType === 'fox') {
+          await bucket.doc('type').update({ fox: items?.fox + 1 });
+          await bucket.doc('type').update({ total: items?.total + 1 });
+          window.location.href = `/result/${resultType}`;
+        } else if (resultType === 'dog') {
+          await bucket.doc('type').update({ dog: items?.dog + 1 });
+          await bucket.doc('type').update({ total: items?.total + 1 });
+          window.location.href = `/result/${resultType}`;
+        } else if (resultType === 'bear') {
+          await bucket.doc('type').update({ bear: items?.bear + 1 });
+          await bucket.doc('type').update({ total: items?.total + 1 });
+          window.location.href = `/result/${resultType}`;
+        } else if (resultType === 'cow') {
+          await bucket.doc('type').update({ cow: items?.cow + 1 });
+          await bucket.doc('type').update({ total: items?.total + 1 });
+          window.location.href = `/result/${resultType}`;
+        } else if (resultType === 'hamster') {
+          await bucket.doc('type').update({ hamster: items?.hamster + 1 });
+          await bucket.doc('type').update({ total: items?.total + 1 });
+          window.location.href = `/result/${resultType}`;
+        } else if (resultType === 'rabbit') {
+          await bucket.doc('type').update({ rabbit: items?.rabbit + 1 });
+          await bucket.doc('type').update({ total: items?.total + 1 });
+          window.location.href = `/result/${resultType}`;
+        } else if (resultType === 'cat') {
+          await bucket.doc('type').update({ cat: items?.cat + 1 });
+          await bucket.doc('type').update({ total: items?.total + 1 });
+          window.location.href = `/result/${resultType}`;
+        } else {
+          await bucket.doc('type').update({ hedgehog: items?.hedgehog + 1 });
+          await bucket.doc('type').update({ total: items?.total + 1 });
+          window.location.href = `/result/${resultType}`;
+        }
+      });
+
+    // window.location.href = `/result/${resultType}`;
   }, [characterPoint]);
 
   // console.log(topOptionText);

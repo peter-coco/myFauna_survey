@@ -72,13 +72,16 @@ const Home = () => {
   const [participatorCount, setParticipatorCount] = useState(0);
   const logo = '/images/main.jpeg';
   useEffect(() => {
-    // console.log(process.env.NEXT_PUBLIC_FIREBASE_APIKEY);
-    const bucket = firebaseDB.collection('bucket');
-    // bucket.add({ result_type: 'A' });
-    bucket.get().then((docs) => {
-      // console.log(docs.size);
-      setParticipatorCount(docs.size);
-    });
+    const bucket = firebaseDB.collection('result');
+
+    bucket
+      .doc('type')
+      .get()
+      .then((item) => {
+        const items = item.data();
+
+        setParticipatorCount(items?.total);
+      });
   }, []);
   return (
     <HomeWrap>
