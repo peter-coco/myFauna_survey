@@ -14,10 +14,17 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
 
   const copyLinkRef = useRef('window.location.href');
   const [resultPercent, setResultPercent] = useState(0);
+
   const [resultLikeCount, setResultLikeCount] = useState(0);
   const [resultBadCount, setResultBadCount] = useState(0);
   const [resultExpectCount, setResultExpectCount] = useState(0);
   const [resultFunCount, setResultFunCount] = useState(0);
+
+  const [resultLikeCountCheck, setResultLikeCountCheck] = useState(false);
+  const [resultBadCountCheck, setResultBadCountCheck] = useState(false);
+  const [resultExpectCountCheck, setResultExpectCountCheck] = useState(false);
+  const [resultFunCountCheck, setResultFunCountCheck] = useState(false);
+
   const [resultMainColor, setResultMainColor] = useState('');
   const [resultLogoImage, setResultLogoImage] = useState('');
   const [resultAnimalTitle, setResultAnimalTitle] = useState<React.ReactNode>();
@@ -46,6 +53,8 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
   };
 
   const handleClickLikeBtn = () => {
+    if (resultLikeCountCheck) return;
+
     const bucket = firebaseDB.collection('evaluation');
 
     bucket
@@ -55,10 +64,13 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
         const items = item.data();
         bucket.doc('evaluation_item').update({ like: items?.like + 1 });
         setResultLikeCount((pre) => pre + 1);
+        setResultLikeCountCheck(true);
       });
   };
 
   const handleClickBadBtn = () => {
+    if (resultBadCountCheck) return;
+
     const bucket = firebaseDB.collection('evaluation');
 
     bucket
@@ -68,10 +80,13 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
         const items = item.data();
         bucket.doc('evaluation_item').update({ bad: items?.bad + 1 });
         setResultBadCount((pre) => pre + 1);
+        setResultBadCountCheck(true);
       });
   };
 
   const handleClickFunBtn = () => {
+    if (resultFunCountCheck) return;
+
     const bucket = firebaseDB.collection('evaluation');
 
     bucket
@@ -81,10 +96,13 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
         const items = item.data();
         bucket.doc('evaluation_item').update({ fun: items?.fun + 1 });
         setResultFunCount((pre) => pre + 1);
+        setResultFunCountCheck(true);
       });
   };
 
   const handleClickExpectBtn = () => {
+    if (resultExpectCountCheck) return;
+
     const bucket = firebaseDB.collection('evaluation');
 
     bucket
@@ -94,6 +112,7 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
         const items = item.data();
         bucket.doc('evaluation_item').update({ expect: items?.expect + 1 });
         setResultExpectCount((pre) => pre + 1);
+        setResultExpectCountCheck(true);
       });
   };
 
@@ -217,6 +236,7 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
         </Styles.ResultLetterTitle>
         <Styles.ResultLetter bgImage={resultLetterImage}>{resultLetter}</Styles.ResultLetter>
       </Styles.ResultLetterWrap>
+      <KakaoAdfit />
       <Styles.ResultShareWrap>
         <Styles.ResultShareTitle>
           내 결과 공유하기
@@ -321,7 +341,7 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
         </Styles.ResultCreatorLinkBtn>
       </Styles.ResultCreatorWrap>
       <Styles.ResultRetryBtn onClick={handleRetryBtn}>테스트 다시 하기</Styles.ResultRetryBtn>
-      <KakaoAdfit />
+      {/* <KakaoAdfit /> */}
     </Styles.ResultFormWrap>
   );
 };

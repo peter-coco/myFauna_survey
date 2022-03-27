@@ -37,7 +37,7 @@ const KakaoShareButton = () => {
       objectType: 'feed',
       content: {
         title: '나의 동물타입 심리테스트',
-        description: '#나의동물타입 #심리테스트 #메타인지',
+        description: '#동물심리테스트 #공감 #mbti',
         imageUrl: 'https://ifh.cc/g/t1S66R.jpg',
         link: {
           mobileWebUrl: window.location.href,

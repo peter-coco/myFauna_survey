@@ -77,7 +77,7 @@ export const setResultContents = (type: string): ResultContent => {
             말랑말랑 여우리
           </div>
         ),
-        animalSubTitle: '급할 필요가 있어? 천천히 가자',
+        animalSubTitle: '급할 필요 있어? 천천히 가자',
         animalDescription: (
           <div>
             <div>• 차 한 잔 마시는 여유를 가지고 있어요.</div>
