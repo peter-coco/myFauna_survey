@@ -144,6 +144,10 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
     window.location.href = '/';
   };
 
+  const handleAnotherTestBtn = () => {
+    window.location.href = 'https://jaksimsamil-survey.netlify.app';
+  };
+
   const handleResultContent = useCallback((resultContent: ResultContent) => {
     setResultMainColor(resultContent.mainColor);
     setResultLogoImage(resultContent.logoImage);
@@ -340,6 +344,9 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
           2022.replace
         </Styles.ResultCreatorLinkBtn>
       </Styles.ResultCreatorWrap>
+      <Styles.ResultRetryBtn onClick={handleAnotherTestBtn}>
+        다른 심리테스트 해보기
+      </Styles.ResultRetryBtn>
       <Styles.ResultRetryBtn onClick={handleRetryBtn}>테스트 다시 하기</Styles.ResultRetryBtn>
       {/* <KakaoAdfit /> */}
     </Styles.ResultFormWrap>
