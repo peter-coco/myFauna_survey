@@ -351,10 +351,10 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
       <Styles.ResultRetryBtn onClick={handleRetryBtn}>테스트 다시 하기</Styles.ResultRetryBtn>
       <Styles.AdDescription>
         재밌게 하셨다면 아래 광고 한 번만 클릭해주세요!
-        <br /> 광고는 저희가 츄파츕스로 당 충전을 할 수 있는 힘이 됩니다!
+        <br /> 클릭은 저희가 츄파츕스로 당 충전을 할 수 있는 힘이 됩니다!
         <br /> 더 좋은 심리테스트를 만들게요!
         <br />
-        ⬇️
+        👇 👇🏻 👇🏼 👇🏽 👇🏾 👇🏿
       </Styles.AdDescription>
       <KakaoAdfit />
     </Styles.ResultFormWrap>
