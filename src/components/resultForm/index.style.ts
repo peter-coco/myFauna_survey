@@ -358,3 +358,11 @@ export const TestReviewEmotionCount = styled.div`
   font-size: 9px;
   font-family: 'Jua';
 `;
+
+export const AdDescription = styled.div`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  font-family: 'Jua';
+  text-align: center;
+`;

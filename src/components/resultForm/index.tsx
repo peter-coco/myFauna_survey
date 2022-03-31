@@ -240,7 +240,7 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
         </Styles.ResultLetterTitle>
         <Styles.ResultLetter bgImage={resultLetterImage}>{resultLetter}</Styles.ResultLetter>
       </Styles.ResultLetterWrap>
-      <KakaoAdfit />
+      {/* <KakaoAdfit /> */}
       <Styles.ResultShareWrap>
         <Styles.ResultShareTitle>
           내 결과 공유하기
@@ -347,8 +347,16 @@ const ResultType = ({ type = 'dog' }: { type?: string }) => {
       <Styles.ResultRetryBtn onClick={handleAnotherTestBtn}>
         다른 심리테스트 해보기
       </Styles.ResultRetryBtn>
+
       <Styles.ResultRetryBtn onClick={handleRetryBtn}>테스트 다시 하기</Styles.ResultRetryBtn>
-      {/* <KakaoAdfit /> */}
+      <Styles.AdDescription>
+        재밌게 하셨다면 아래 광고 한 번만 클릭해주세요!
+        <br /> 광고는 저희가 츄파츕스로 당 충전을 할 수 있는 힘이 됩니다!
+        <br /> 더 좋은 심리테스트를 만들게요!
+        <br />
+        ⬇️
+      </Styles.AdDescription>
+      <KakaoAdfit />
     </Styles.ResultFormWrap>
   );
 };
